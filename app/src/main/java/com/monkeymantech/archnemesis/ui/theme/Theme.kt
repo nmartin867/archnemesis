@@ -1,31 +1,27 @@
 package com.monkeymantech.archnemesis.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.tooling.preview.Preview
+import com.mikepenz.iconics.compose.Image
+import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = Gray59,
+    primaryVariant = Gray71,
+    secondary = Blue245,
+    secondaryVariant = Blue65,
+    background = Gray46,
+    surface = Gray46,
+    onPrimary = White229,
+    onSecondary = Gray46,
+    onBackground = White199,
+    onSurface = White199
 )
 
-private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
-)
+private val LightColorPalette = lightColors()
 
 @Composable
 fun ArchNemesisTheme(
@@ -44,4 +40,30 @@ fun ArchNemesisTheme(
         shapes = Shapes,
         content = content
     )
+}
+
+@Preview
+@Composable
+fun ArchThemePreview() {
+    ArchNemesisTheme(darkTheme = true) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text("TopAppBar") },
+                    backgroundColor = MaterialTheme.colors.primary
+                )
+            },
+            floatingActionButtonPosition = FabPosition.End,
+            floatingActionButton = {
+                FloatingActionButton(onClick = {}) {
+                    Image(
+                        FontAwesome.Icon.faw_twitter,
+                        colorFilter = ColorFilter.tint(MaterialTheme.colors.primary)
+                    )
+                }
+            },
+            content = { Image(FontAwesome.Icon.faw_twitter) },
+            bottomBar = { BottomAppBar { Text("BottomAppBar") } }
+        )
+    }
 }
