@@ -1,7 +1,7 @@
 package com.monkeymantech.archnemesis.ioc
 
 import com.monkeymantech.archnemesis.ApplicationConfiguration
-import com.monkeymantech.archnemesis.news.NewsFeedViewModel
+import com.monkeymantech.archnemesis.viewModel.ArchNewsViewModel
 import com.prof.rssparser.Parser
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -21,5 +21,5 @@ val news = module {
             .build()
     }
 
-    viewModel { NewsFeedViewModel(get(), get()) }
+    viewModel { ArchNewsViewModel(get(), get()) }
 }
